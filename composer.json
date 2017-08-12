@@ -1,0 +1,21 @@
+{
+    "name": "weberkent/askmilazimapi",
+    "authors": [
+        {
+            "name": "Zahir ÖLMEZ",
+            "email": "m.zahirr@hotmail.com"
+        }
+    ],
+    "require": {
+	    "karmaphp/karma": "dev-master",
+        "twig/twig": "^2.4",
+        "vlucas/phpdotenv": "^2.4",
+        "nesbot/carbon": "^1.22",
+        "illuminate/database": "^5.4"	
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}
