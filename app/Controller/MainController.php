@@ -8,6 +8,7 @@ class MainController extends Controller
 {
     public function Index()
     {
+
         $response = new Response();
         return $response->withJson(['data' => User::all()->map(function (User $user) {
             return [
