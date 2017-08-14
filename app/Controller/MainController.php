@@ -1,14 +1,10 @@
 <?php namespace App\Controller;
 
-use App\Base\BaseController;
+use App\Base\Controller;
 use App\Contract\Repo\UserContract;
 use App\Table\User;
-use Slim\Http\Response;
 
-/**
- * @property  Response response
- */
-class MainController extends BaseController
+class MainController extends Controller
 {
     /**
      * @Inject
@@ -18,9 +14,9 @@ class MainController extends BaseController
 
     public function Index()
     {
-        return  $this->userRepo->all()->map(function (User $user) {
+        return $this->userRepo->all()->map(function (User $user) {
             return [
-                'id' => $user->id,
+                'id'   => $user->id,
                 'name' => $user->name
             ];
         });

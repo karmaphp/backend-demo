@@ -1,6 +1,6 @@
 <?php namespace App\Table;
 
-use App\Base\BaseTable;
+use App\Base\Table;
 use Carbon\Carbon;
 
 /**
@@ -14,7 +14,7 @@ use Carbon\Carbon;
  * @property Carbon created_at
  * @property Carbon updated_at
  */
-class User extends BaseTable
+class User extends Table
 {
     protected $table = 'users';
 

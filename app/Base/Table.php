@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class BaseTable extends Model
+class Table extends Model
 {
     protected $connection = 'default';
 }

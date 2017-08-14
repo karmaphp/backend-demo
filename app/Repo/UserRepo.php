@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Collection;
 
 class UserRepo implements UserContract
 {
-
     /**
      * @param int $id
      * @return User|Builder|null
      */
     public function find($id)
     {
-       return User::query()
-           ->find($id);
+        return User::query()
+            ->find($id);
     }
 
     /**

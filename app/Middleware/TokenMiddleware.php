@@ -17,7 +17,7 @@ class TokenMiddleware
     {
         /** @var Request $request */
 
-        if(empty($request->getHeader('Auth'))){
+        if (empty($request->getHeader('Auth'))) {
             throw new BadRequestException('Token required');
         }
 

@@ -14,7 +14,9 @@ $dotenv->load();
 
 require_once 'config/db.php';
 
-$container = Container::build();
+$container = Container::build(
+    require_once 'config/container.php'
+);
 
 //$container->set('errorHandler', function() {
 //    return new App\Handler\Error();

@@ -14,6 +14,7 @@ class TwigService
             'cache' => ROOT_DIR . '/views/twig_c',
         ]);
     }
+
     public function render($name, array $context = [])
     {
         return $this->twig->render($name, $context);
