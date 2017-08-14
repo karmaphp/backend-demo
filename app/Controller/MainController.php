@@ -1,21 +1,28 @@
 <?php namespace App\Controller;
 
+use App\Base\BaseController;
+use App\Contract\Repo\UserContract;
 use App\Table\User;
-use \Karma\Controller;
 use Slim\Http\Response;
 
-class MainController extends Controller
+/**
+ * @property  Response response
+ */
+class MainController extends BaseController
 {
+    /**
+     * @Inject
+     * @var UserContract
+     */
+    private $userRepo;
+
     public function Index()
     {
-
-        $response = new Response();
-        return $response->withJson(['data' => User::all()->map(function (User $user) {
+        return  $this->userRepo->all()->map(function (User $user) {
             return [
                 'id' => $user->id,
                 'name' => $user->name
             ];
-        })]);
-
+        });
     }
 }

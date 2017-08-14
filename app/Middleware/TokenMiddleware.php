@@ -6,6 +6,13 @@ use Slim\Http\Response;
 
 class TokenMiddleware
 {
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param callable $next
+     * @return Response
+     * @throws BadRequestException
+     */
     public function __invoke($request, $response, $next)
     {
         /** @var Request $request */

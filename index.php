@@ -1,5 +1,8 @@
 <?php
 
+use App\Base\App;
+use App\Base\Container;
+
 require_once 'vendor/autoload.php';
 
 define('ROOT_DIR', __DIR__);
@@ -11,15 +14,13 @@ $dotenv->load();
 
 require_once 'config/db.php';
 
-$container = \App\Base\Container::build(
-    require_once 'config/container.php'
-);
+$container = Container::build();
 
-$container->set('errorHandler', function() {
-    return new App\Handler\Error();
-});
+//$container->set('errorHandler', function() {
+//    return new App\Handler\Error();
+//});
 
-$app = new \Karma\App($container);
+$app = new App($container);
 
 // middleware
 require_once 'config/middlewares.php';

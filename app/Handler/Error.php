@@ -1,6 +1,7 @@
 <?php namespace App\Handler;
 
 use App\Exception\BadRequestException;
+use App\Exception\UnauthorizedException;
 use DI\NotFoundException;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Handlers\AbstractError;
@@ -31,6 +32,12 @@ class Error extends AbstractError
             return $response->withJson([
                 'message' => $exception->getMessage()
             ], 404);
+        }
+
+        if ($exception instanceof UnauthorizedException) {
+            return $response->withJson([
+                'message' => $exception->getMessage()
+            ], 401);
         }
 
         if ($exception instanceof \Exception) {
@@ -162,12 +169,12 @@ class Error extends AbstractError
 
             do {
                 $error['exception'][] = [
-                    'type'    => get_class($exception),
-                    'code'    => $exception->getCode(),
+                    'type' => get_class($exception),
+                    'code' => $exception->getCode(),
                     'message' => $exception->getMessage(),
-                    'file'    => $exception->getFile(),
-                    'line'    => $exception->getLine(),
-                    'trace'   => explode("\n", $exception->getTraceAsString()),
+                    'file' => $exception->getFile(),
+                    'line' => $exception->getLine(),
+                    'trace' => explode("\n", $exception->getTraceAsString()),
                 ];
             } while ($exception = $exception->getPrevious());
         }

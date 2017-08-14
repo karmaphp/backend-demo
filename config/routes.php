@@ -1,8 +1,8 @@
 <?php
 
-$app->get('/', [\App\Controller\MainController::class, 'Index']);
-$app->get('/hello/{name}', [\App\Controller\MainController::class, 'Hello']);
+use App\Controller\MainController;
 
 $app->group('/api', function () use ($app) {
-    $app->get('/deneme', [\App\Controller\MainController::class, 'Index']); // blabla
+    $app->get('/deneme', [MainController::class, 'Index']); // blabla
+
 })->add(\App\Middleware\TokenMiddleware::class);
