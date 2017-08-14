@@ -14,11 +14,11 @@ class MainController extends Controller
 
     public function Index()
     {
-        return $this->userRepo->all()->map(function (User $user) {
+        return $this->response->withJson(['data' => $this->userRepo->all()->map(function (User $user) {
             return [
-                'id'   => $user->id,
+                'id' => $user->id,
                 'name' => $user->name
             ];
-        });
+        })]);
     }
 }
