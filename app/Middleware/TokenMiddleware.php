@@ -15,15 +15,14 @@ class TokenMiddleware
      */
     public function __invoke($request, $response, $next)
     {
-        /** @var Request $request */
-
-        if (empty($request->getHeader('Auth'))) {
+        if (empty($request->getHeader('X-Token'))) {
             throw new BadRequestException('Token required');
         }
 
         /** @var Response $response */
         $response = $next($request, $response);
 
+        // response with CORS
         return $response
             ->withHeader('Access-Control-Allow-Origin', '*')
             ->withHeader('Access-Control-Allow-Headers',

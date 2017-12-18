@@ -8,13 +8,12 @@ use Carbon\Carbon;
  * @property string name
  * @property string email
  * @property string password
- * @property string mobilenumber
  * @property string remember_token
  * @property Carbon deleted_at
  * @property Carbon created_at
  * @property Carbon updated_at
  */
-class User extends Table
+class UserTable extends Table
 {
     protected $table = 'users';
 

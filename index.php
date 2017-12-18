@@ -3,30 +3,32 @@
 use App\Base\App;
 use App\Base\Container;
 
+// vendor'ü yükleyelim
 require_once 'vendor/autoload.php';
 
+// kök dizini daha sonra kullanmak için kaydedelim
 define('ROOT_DIR', __DIR__);
 
-setlocale(LC_TIME, 'tr_TR.utf8');
-
+// env değişkenlerini yükleyelim
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
+// veritanını aktif edelim
 require_once 'config/db.php';
 
+// yeni bir container build edelim
 $container = Container::build(
     require_once 'config/container.php'
 );
 
-//$container->set('errorHandler', function() {
-//    return new App\Handler\Error();
-//});
-
+// yeni bir app oluşturalım
 $app = new App($container);
 
-// middleware
+// middlewares
 require_once 'config/middlewares.php';
 
+// routes
 require_once 'config/routes.php';
 
+// run
 $app->run();

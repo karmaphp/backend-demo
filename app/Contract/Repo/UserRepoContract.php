@@ -1,18 +1,18 @@
 <?php namespace App\Contract\Repo;
 
-use App\Table\User;
+use App\Table\UserTable;
 use Illuminate\Database\Eloquent\Collection;
 
-interface UserContract
+interface UserRepoContract
 {
     /**
      * @param int $id
-     * @return null|User
+     * @return UserTable|null
      */
     public function find($id);
 
     /**
-     * @return Collection|User
+     * @return Collection|UserTable[]
      */
     public function all();
 }
