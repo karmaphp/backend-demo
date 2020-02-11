@@ -1,6 +1,7 @@
 <?php
 
 use App\Base\Container;
+use App\Handler\ErrorHandler;
 use Dotenv\Dotenv;
 use Karma\AppFactory;
 use Karma\ContainerBuilder;
@@ -26,11 +27,19 @@ $container = ContainerBuilder::build(
 // yeni bir app oluşturalım
 $app = AppFactory::create($container);
 
+// Add Routing Middleware
+$app->addRoutingMiddleware();
+
+// Add Error Middleware
+$app
+    ->addErrorMiddleware(getenv('APP_DEBUG'), true, true)
+    ->setDefaultErrorHandler(new ErrorHandler($app->getCallableResolver(), $app->getResponseFactory()));
+
 // middlewares
-require_once 'config/middlewares.php';
+require_once ROOT_DIR . '/config/middlewares.php';
 
 // routes
-require_once 'config/routes.php';
+require_once ROOT_DIR . '/config/routes.php';
 
 // run
 $app->run();
