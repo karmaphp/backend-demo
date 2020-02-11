@@ -1,5 +1,3 @@
-# apidemo
+# Karmaphp Backend Demo
 
-KarmaPhp api için yapılmış örnektir. 
-
-Readme düzenleniyor.
+Karmaphp için yapılmış bir backend örneğidir. 

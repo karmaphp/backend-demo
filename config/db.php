@@ -1,6 +1,8 @@
 <?php
 
-$manager = new \Illuminate\Database\Capsule\Manager();
+use Illuminate\Database\Capsule\Manager;
+
+$manager = new Manager();
 
 $manager->addConnection([
     'driver'    => getenv('DB_DRIVER_MAIN'),

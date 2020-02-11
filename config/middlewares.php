@@ -1,3 +1,5 @@
 <?php
 
-$app->add(\App\Middleware\TokenMiddleware::class);
+use App\Middleware\CorsMiddleware;
+
+$app->add(CorsMiddleware::class);

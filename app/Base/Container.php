@@ -1,9 +1,9 @@
 <?php namespace App\Base;
 
-use App\Contract\Repo\UserRepoContract;
+use App\Repo\UserRepo;
 
 /**
- * @property UserRepoContract userRepo
+ * @property UserRepo userRepo
  */
 class Container extends \Karma\Container
 {

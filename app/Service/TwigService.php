@@ -1,16 +1,20 @@
-<?php namespace App\Service\View;
+<?php namespace App\Service;
+
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class TwigService
 {
     /**
-     * @var \Twig_Environment
+     * @var Environment
      */
     private $twig;
 
     public function __construct()
     {
-        $loader = new \Twig_Loader_Filesystem(ROOT_DIR . '/views/twig');
-        $this->twig = new \Twig_Environment($loader, [
+        $loader = new FilesystemLoader(ROOT_DIR . '/views/twig');
+
+        $this->twig = new Environment($loader, [
             'cache' => ROOT_DIR . '/views/twig_c',
         ]);
     }

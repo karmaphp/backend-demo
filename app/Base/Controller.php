@@ -6,5 +6,5 @@ class Controller extends \Karma\Controller
      * @Inject
      * @var Container
      */
-    protected $container;
+    protected $c;
 }

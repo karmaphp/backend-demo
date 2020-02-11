@@ -1,10 +1,9 @@
-<?php namespace App\Repo\Eloquent;
+<?php namespace App\Repo;
 
-use App\Contract\Repo\UserRepoContract;
 use App\Table\UserTable;
 use Illuminate\Database\Eloquent\Collection;
 
-class UserRepo implements UserRepoContract
+class UserRepo
 {
     /**
      * @param int $id
@@ -12,8 +11,7 @@ class UserRepo implements UserRepoContract
      */
     public function find($id)
     {
-        return UserTable::query()
-            ->find($id);
+        return UserTable::query()->find($id);
     }
 
     /**
@@ -21,7 +19,6 @@ class UserRepo implements UserRepoContract
      */
     public function all()
     {
-        return UserTable::query()
-            ->get();
+        return UserTable::query()->get();
     }
 }
