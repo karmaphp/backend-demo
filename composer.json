@@ -1,5 +1,7 @@
 {
   "name": "karmaphp/backend-demo",
+  "description": "Karma PHP Application Framework Backend Demo",
+  "type": "project",
   "authors": [
     {
       "name": "Zahir ÖLMEZ",
@@ -16,6 +18,7 @@
     "nesbot/carbon": "2.29.*",
     "illuminate/database": "6.14.*"
   },
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "App\\": "app"
