@@ -1,9 +1,10 @@
 <?php
 
 use App\Controller\MainController;
+use Slim\Routing\RouteCollectorProxy;
 
-$app->group('/api', function () use ($app) {
+$app->group('/api', function (RouteCollectorProxy $group) {
 
-    $app->get('/index', [MainController::class, 'Index']);
+    $group->get('/index', [MainController::class, 'Index']);
 
 });
