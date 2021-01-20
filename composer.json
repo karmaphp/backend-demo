@@ -16,7 +16,7 @@
     "karmaphp/karma": "2.0.*",
     "vlucas/phpdotenv": "4.1.*",
     "nesbot/carbon": "2.29.*",
-    "illuminate/database": "6.14.*"
+    "illuminate/database": "6.20.*"
   },
   "license": "MIT",
   "autoload": {
